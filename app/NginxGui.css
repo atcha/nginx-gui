@@ -1,4 +1,13 @@
 /**
+ * Global
+ */
+
+.container-fluid {
+    padding-top: 20px;
+}
+
+
+/**
  * Servers table configuration
  */
 
@@ -12,6 +21,11 @@ table.table > thead > tr > th {
     vertical-align: middle;
     padding: 10px;
     text-align: center;
+    font-size: 14px;
+}
+th.title-location {
+    max-width: 75px !important;
+    min-width: 75px;
 }
 
 td.enable {
@@ -25,32 +39,21 @@ table.table > tbody > tr > td.actions-container {
     border-left: 0;
 }
 
-.table.location{
+/**
+ * Location sub-table
+ */
+.table.table-location{
     margin:0;
 }
-
-.checkbox.pull-right>label>div{
-    width: 100px !important;
-}
-
-.table>thead>tr>th.location{
-    max-width: 50px;
-}
-
-.table.location>tbody>tr>td>*{
+.table.table-location > tbody > td > *{
     margin-right: 5px;
 }
 
-.container-fluid {
-    padding-top: 20px;
+.checkbox.pull-right > label > div{
+    width: 100px !important;
 }
 
 
-@media (min-width: 100px) {
-    .modal-dialog.modal-xl {
-        width: 100%;
-    }
-}
 
 /**
  * Server configuration
@@ -83,4 +86,14 @@ edit-server .location>.clearfix {
     position: absolute;
     top: -11px;
     right: 0;
+}
+
+/**
+ * Specific responsive
+ */
+
+@media (min-width: 100px) {
+    .modal-dialog.modal-xl {
+        width: 100%;
+    }
 }

@@ -9,7 +9,7 @@ export default class AccessLogModal {
             template,
             controller : AccessLogModal,
             controllerAs : '$ctrl',
-            size:'xl'
+            size:'lg'
         });
     };
 

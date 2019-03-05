@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xs-12 col-md-6">
+        <div class="col-sm-12 col-md-6 col-lg-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="pull-left">Servers</h4>
@@ -15,7 +15,7 @@
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped">
                         <thead>
-                            <th class="location">Locations</th>
+                            <th class="title-location">Locations</th>
                             <th>Name</th>
                             <th>Execution port</th>
                             <th>Status</th>
@@ -24,8 +24,20 @@
                         <tbody>
                             <tr ng-repeat-start="server in $ctrl.servers track by $index" ng-class="{'editing' : $ctrl.editServer.$loki === server.$loki}">
                                 <td>
-                                    <span ng-click="$ctrl.showMore = server.$loki" ng-if="$ctrl.showMore !== server.$loki" class="glyphicon glyphicon-plus-sign"></span>
-                                    <span ng-click="$ctrl.showMore = null" ng-if="$ctrl.showMore === server.$loki" class="glyphicon glyphicon-minus-sign"></span>
+                                    <a href=""
+                                       title="Open locations"
+                                       ng-click="$ctrl.showMore = server.$loki"
+                                       ng-if="$ctrl.showMore !== server.$loki"
+                                       uib-tooltip="Open locations">
+                                        <span class="glyphicon glyphicon-plus-sign"></span>
+                                    </a>
+                                    <a href=""
+                                       title="Close locations"
+                                       ng-click="$ctrl.showMore = null"
+                                       ng-if="$ctrl.showMore === server.$loki"
+                                       uib-tooltip="Close locations">
+                                        <span class="glyphicon glyphicon-minus-sign"></span>
+                                    </a>
                                 </td>
                                 <td ng-bind="server.displayName"></td>
                                 <td ng-bind="server.port"></td>
@@ -77,7 +89,7 @@
                             <tr ng-repeat-end ng-show="$ctrl.showMore === server.$loki">
                                 <td></td>
                                 <td colspan="5">
-                                    <table class="table location">
+                                    <table class="table table-location">
                                         <thead>
                                         <tr>
                                             <th>location</th>
@@ -97,7 +109,7 @@
                                                 <div class="checkbox pull-right">
                                                     <label>
                                                         <input type="checkbox"
-                                                               class="toogle"
+                                                               class="toggle"
                                                                data-toggle="toggle"
                                                                ng-change="$ctrl.changedLocation(server)"
                                                                data-on="Enabled"
@@ -117,7 +129,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-6" ng-if="$ctrl.mode==='nominal'">
+        <div class="col-sm-12 col-md-6 col-lg-4" ng-if="$ctrl.mode==='nominal'">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4>Nginx runner</h4>
@@ -142,7 +154,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-6" ng-if="$ctrl.mode==='edit'">
+        <div class="col-sm-12 col-md-6 col-lg-4" ng-if="$ctrl.mode==='edit'">
             <edit-server id="$ctrl.editServer.$loki"
                          ng-if="$ctrl.editServer.$loki"
                          on-save="$ctrl.stopEdit()"
